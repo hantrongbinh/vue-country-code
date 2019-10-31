@@ -11,13 +11,9 @@
     "url": "https://github.com/hantrongbinh/vue-country-code.git"
   },
   "scripts": {
-    "dist": "poi build ./src/index.js --format umd --module-name VueCountrySelect --filename.js vue-country-code.js --filename.css vue-country-code.css --no-sourceMap --no-html",
-    "dist:demo": "poi build ./demo/index.js --config ./demo/build.config.js --filename.css vue-country-code.css --no-sourceMap --dist ./docs",
-    "start": "yarn dev",
-    "dev": "poi build ./demo/index.js --config ./demo/build.config.js --filename.css vue-country-code.css --no-sourceMap --no-minimize --dist ./docs",
-    "release": "rm -rf dist && yarn dist",
-    "demo": "yarn dist && yarn dev && yarn demo:open",
-    "demo:open": "open 'http://localhost:5000/'; serve ./docs/"
+    "build": "parcel build src/index.js --out-file vue-country-code.js --no-source-maps",
+    "dev": "parcel demo/index.html --out-file index.html --out-dir docs --no-source-maps --open",
+    "demo": "yarn dev"
   },
   "files": [
     "dist/"
@@ -32,16 +28,21 @@
     "country code"
   ],
   "dependencies": {
-    "get-json": "^1.0.0"
+    "get-json": "^1.0.0",
+    "vue": "^2.6.10",
+    "vue-hot-reload-api": "^2.3.4"
   },
   "devDependencies": {
+    "@vue/component-compiler-utils": "^3.0.0",
     "babel-eslint": "^7.2.3",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.3.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
     "node-sass": "^4.12.0",
-    "poi": "^9.4.3",
+    "parcel-bundler": "^1.12.4",
+    "parcel-plugin-nuke-dist": "^1.0.1",
     "sass-loader": "^7.1.0",
-    "serve": "^6.3.1"
+    "serve": "^11.2.0",
+    "vue-template-compiler": "^2.6.10"
   }
 }

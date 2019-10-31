@@ -1,13 +1,10 @@
 <template>
-  <div
-    class="vue-country-select"
-    :class="{ disabled: disabled }"
-  >
+  <div class="vue-country-select" :class="{ disabled: disabled }">
     <div
       class="dropdown"
       @click="toggleDropdown"
       v-click-outside="clickedOutside"
-      :class="{open: open}"
+      :class="{ open: open }"
       @keydown="keyboardNav"
       tabindex="0"
       @keydown.esc="reset"
@@ -18,17 +15,12 @@
           class="iti-flag"
           :class="activeCountry.iso2.toLowerCase()"
         ></div>
-        <span
-          v-if="enabledCountryCode"
-          class="country-code"
-        >+{{ activeCountry.dialCode }}</span>
-        <span class="dropdown-arrow">{{ open ? '▲' : '▼' }}</span>
+        <span v-if="enabledCountryCode" class="country-code"
+          >+{{ activeCountry.dialCode }}</span
+        >
+        <span class="dropdown-arrow">{{ open ? "▲" : "▼" }}</span>
       </span>
-      <ul
-        v-show="open"
-        ref="list"
-        class="dropdown-list"
-      >
+      <ul v-show="open" ref="list" class="dropdown-list">
         <li
           class="dropdown-item"
           v-for="(pb, index) in sortedCountries"
@@ -43,15 +35,17 @@
             :class="pb.iso2.toLowerCase()"
           ></div>
           <strong>{{ pb.name }}</strong>
-          <span v-if="dropdownOptions && !dropdownOptions.disabledDialCode">+{{ pb.dialCode }}</span>
+          <span v-if="dropdownOptions && !dropdownOptions.disabledDialCode"
+            >+{{ pb.dialCode }}</span
+          >
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<style src="./assets/sprite.css"></style>
 <style lang="scss">
+@import url("./assets/sprite.css");
 .vue-country-select {
   border-radius: 3px;
   display: inline-block;
@@ -215,9 +209,9 @@ export default {
     },
     sortedCountries() {
       // Sort the list countries: from preferred countries to all countries
-      const preferredCountries = this.getCountries(this.preferredCountries).map(
-        country => ({ ...country, preferred: true })
-      );
+      const preferredCountries = this.getCountries(
+        this.preferredCountries
+      ).map(country => ({ ...country, preferred: true }));
 
       return [...preferredCountries, ...this.filteredCountries];
     }

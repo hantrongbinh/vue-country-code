@@ -96,17 +96,11 @@ Checkout Demo at [Github pages](https://hantrongbinh.github.io/vue-country-code/
 # install dependencies
 $ yarn/npm install
 
-# compile demo for development
+# compile demo and start serve for development
 $ yarn/npm dev
 
-# open Browser and start serve in demo
-$ yarn/npm demo:open
-
-# compile dist demo
-$ yarn/npm dist:demo
-
-# compile dist
-$ yarn/npm dist
+# build
+$ yarn/npm build
 
 ```
 
