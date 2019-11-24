@@ -1,6 +1,6 @@
 {
   "name": "vue-country-code",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Country Code Select with Vue",
   "author": "Trong Binh Han <me@hantrongbinh.dev>",
   "main": "dist/vue-country-code.js",
