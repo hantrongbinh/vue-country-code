@@ -44,88 +44,9 @@
   </div>
 </template>
 
-<style lang="scss">
-@import url("./assets/sprite.css");
-.vue-country-select {
-  border-radius: 3px;
-  display: inline-block;
-  border: 1px solid #bbb;
-  text-align: left;
-  &:focus-within {
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
-      0 0 8px rgba(102, 175, 233, 0.6);
-    border-color: #66afe9;
-  }
-  .dropdown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding: 0.5em;
-    position: relative;
-    cursor: pointer;
-    &.open {
-      background-color: #f3f3f3;
-    }
-    &:hover {
-      background-color: #f3f3f3;
-    }
-  }
-  .dropdown-list {
-    z-index: 1;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    list-style: none;
-    max-height: 200px;
-    overflow-y: scroll;
-    position: absolute;
-    top: 100%;
-    left: -1px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    width: 390px;
-  }
-  .dropdown-item {
-    cursor: pointer;
-    padding: 4px 15px;
-    .iti-flag {
-      display: inline-block;
-      margin-right: 5px;
-      margin-left: 5px;
-    }
-    &.highlighted {
-      background-color: #f3f3f3;
-    }
-    &.last-preferred {
-      border-bottom: 1px solid #cacaca;
-    }
-  }
-  .dropdown-arrow {
-    transform: scaleY(0.5);
-    display: inline-block;
-    color: #666;
-  }
-  .current {
-    font-size: 0.8em;
-    display: flex;
-    align-items: center;
-  }
-
-  .country-code {
-    color: #666;
-  }
-}
-.vue-country-select.disabled .current,
-.vue-country-select.disabled .dropdown {
-  cursor: no-drop;
-}
-</style>
-
 <script>
-import allCountries from "./allCountries";
-import getCountry from "./defaultCountry";
+import allCountries from "../utils/allCountries";
+import getCountry from "../utils/defaultCountry";
 
 export default {
   name: "vue-country-code",
@@ -378,7 +299,7 @@ export default {
         // add Event Listeners
         document.addEventListener("click", handler);
       },
-      unbind: function(el, binding) {
+      unbind: function(el) {
         // Remove Event Listeners
         document.removeEventListener("click", el.__vueClickOutside__);
         el.__vueClickOutside__ = null;
@@ -387,3 +308,83 @@ export default {
   }
 };
 </script>
+
+<style src="../assets/sprite.css"></style>
+<style>
+/* TODO: Find the right way to resolve alias in style block */
+/* @import url("~@/assets/sprite.css"); */
+.vue-country-select {
+  border-radius: 3px;
+  display: inline-block;
+  border: 1px solid #bbb;
+  text-align: left;
+}
+.vue-country-select:focus-within {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  border-color: #66afe9;
+}
+.vue-country-select .dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0.5em;
+  position: relative;
+  cursor: pointer;
+}
+.vue-country-select .dropdown.open {
+  background-color: #f3f3f3;
+}
+.vue-country-select .dropdown:hover {
+  background-color: #f3f3f3;
+}
+.vue-country-select .dropdown-list {
+  z-index: 1;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 100%;
+  left: -1px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  width: 390px;
+}
+.vue-country-select .dropdown-item {
+  cursor: pointer;
+  padding: 4px 15px;
+}
+.vue-country-select .dropdown-item .iti-flag {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.vue-country-select .dropdown-item.highlighted {
+  background-color: #f3f3f3;
+}
+.vue-country-select .dropdown-item.last-preferred {
+  border-bottom: 1px solid #cacaca;
+}
+.vue-country-select .dropdown-arrow {
+  transform: scaleY(0.5);
+  display: inline-block;
+  color: #666;
+}
+.vue-country-select .current {
+  font-size: 0.8em;
+  display: flex;
+  align-items: center;
+}
+.vue-country-select .country-code {
+  color: #666;
+}
+.vue-country-select.disabled .current,
+.vue-country-select.disabled .dropdown {
+  cursor: no-drop;
+}
+</style>
