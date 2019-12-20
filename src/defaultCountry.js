@@ -1,14 +1,15 @@
-import getJSON from 'get-json';
-
 const getCountry = () => {
-  return new Promise((resolve, reject) => {
-    getJSON('https://ipinfo.io/json', (error, response) => {
-      if (error) {
-        reject(error);
+  return fetch("https://ip2c.org/s")
+    .then(response => response.text())
+    .then(response => {
+      const result = (response || "").toString();
+
+      if (!result || result[0] !== "1") {
+        throw new Error("unable to fetch the country");
       }
-      resolve(response && response.country);
+
+      return result.substr(2, 2);
     });
-  });
 };
 
 export default getCountry;

@@ -6,9 +6,12 @@
       <vue-country-code
         @onSelect="onSelect"
         :preferredCountries="['vn', 'us', 'gb']"
+        defaultCountry=""
       ></vue-country-code>
     </div>
-    <div><code>{{ selectedCountry }}</code></div>
+    <div>
+      <code>{{ selectedCountry }}</code>
+    </div>
   </div>
 </template>
 
