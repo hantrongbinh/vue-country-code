@@ -17,12 +17,6 @@ Checkout Demo at [Github pages](https://hantrongbinh.github.io/vue-country-code/
 
 ## Usage
 
-- Import default `CSS` to your project:
-
-  ```js
-  import "vue-country-code/dist/vue-country-code.css";
-  ```
-
 - Install as a global component:
 
   ```javascript
