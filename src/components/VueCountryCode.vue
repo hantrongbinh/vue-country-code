@@ -160,7 +160,7 @@ export default {
        */
       if (!this.disabledFetchingCountry) {
         getCountry().then(res => {
-          this.activeCountry = this.findCountry(res) || this.activeCountry;
+          this.choose(this.findCountry(res) || this.activeCountry);
         });
       }
     },
