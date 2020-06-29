@@ -1,13 +1,13 @@
 {
   "name": "vue-country-code",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Country Code Select with Vue",
   "author": "Trong Binh Han <me@hantrongbinh.dev>",
   "license": "MIT",
   "homepage": "https://hantrongbinh.github.io/vue-country-code/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hantrongbinh/vue-country-code.git"
+    "url": "git+https://github.com/hantrongbinh/vue-country-code.git"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -53,5 +53,11 @@
     "vue-country-code",
     "phone code",
     "country code"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/hantrongbinh/vue-country-code/issues"
+  },
+  "directories": {
+    "doc": "docs"
+  }
 }
