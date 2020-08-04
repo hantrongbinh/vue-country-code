@@ -106,6 +106,7 @@ export default {
     return {
       activeCountry: { iso2: "" },
       open: false,
+      manualTrigger: false,
       selectedIndex: null,
       typeToFindInput: "",
       typeToFindTimer: null
@@ -197,7 +198,20 @@ export default {
       }
       this.open = !this.open;
     },
+    // Method to enable programmatic trigger of the dropdown by an element in the DOM
+    manualDropdown() {
+      if (this.disabled) {
+        return;
+      }
+      this.manualTrigger = true;
+      this.open = true;
+    },
     clickedOutside() {
+      // If this was caused by a programmatic trigger, allow it, then reset the manualTrigger
+      if(this.manualTrigger) {
+        this.manualTrigger = false;
+        return;
+      }
       this.open = false;
     },
     keyboardNav(e) {
