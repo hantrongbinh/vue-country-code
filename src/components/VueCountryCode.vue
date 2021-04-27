@@ -12,7 +12,7 @@
       <span class="current">
         <div
           v-if="enabledFlags"
-          class="iti-flag"
+          class="vti__flag"
           :class="activeCountry.iso2.toLowerCase()"
         ></div>
         <span v-if="enabledCountryCode" class="country-code"
@@ -30,7 +30,7 @@
           @mousemove="selectedIndex = index"
         >
           <div
-            class="iti-flag"
+            class="vti__flag"
             v-if="enabledFlags"
             :class="pb.iso2.toLowerCase()"
           ></div>
@@ -208,7 +208,7 @@ export default {
     },
     clickedOutside() {
       // If this was caused by a programmatic trigger, allow it, then reset the manualTrigger
-      if(this.manualTrigger) {
+      if (this.manualTrigger) {
         this.manualTrigger = false;
         return;
       }

@@ -53,7 +53,34 @@ Checkout Demo at [Github pages](https://hantrongbinh.github.io/vue-country-code/
   </script>
   ```
 
-- Register the new field as a global component
+- Manual Trigger:
+    ```js
+  <template>
+  ...
+     <vue-country-code
+                    ref="vcc"
+                    @onSelect="onSelect"
+     </vue-country-code>
+     <button @click="manualTrigger">Manual Trigger</button>
+  ...
+  <template>
+  <script>
+  export default {
+    data() {
+      return {
+      };
+    },
+    methods: {
+       onSelect({name, iso2, dialCode}) {
+         console.log(name, iso2, dialCode);
+       },
+       manualTrigger() {
+         this.$refs.vcc.manualDropdown();
+       }
+    },
+  }
+  </script>
+  ```
 
 ### Props
 
