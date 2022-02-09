@@ -138,6 +138,12 @@ export default {
       return [...preferredCountries, ...this.filteredCountries];
     }
   },
+  watch: {
+    defaultCountry(newVal) {
+      const defaultCountry = this.findCountry(newVal);
+      this.choose(defaultCountry);
+    }
+  },
   methods: {
     initializeCountry() {
       /**

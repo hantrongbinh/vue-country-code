@@ -5,8 +5,7 @@ const getCountry = () => {
       const result = (response || "").toString();
 
       if (!result || result[0] !== "1") {
-        console.warn("Error getting country code");
-        // throw new Error("unable to fetch the country");
+        console.warn("unable to fetch the country");
       }
 
       return result.substr(2, 2);
