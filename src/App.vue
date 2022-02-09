@@ -8,8 +8,6 @@
         :preferredCountries="['vn', 'us', 'gb']"
         defaultCountry=""
       ></vue-country-code>
-      <button @click="reset">reset</button>
-      <button @click="set">set</button>
     </div>
     <div>
       <code>{{ selectedCountry }}</code>
