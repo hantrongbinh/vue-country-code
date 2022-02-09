@@ -2,12 +2,14 @@
   <div id="app">
     <h1>Telephone Country Select</h1>
     <h2 style="color: #999">made with &#x2764; by Mon.</h2>
-    <div style="margin: 20px auto;">
+    <div style="margin: 20px auto">
       <vue-country-code
         @onSelect="onSelect"
         :preferredCountries="['vn', 'us', 'gb']"
         defaultCountry=""
       ></vue-country-code>
+      <button @click="reset">reset</button>
+      <button @click="set">set</button>
     </div>
     <div>
       <code>{{ selectedCountry }}</code>
